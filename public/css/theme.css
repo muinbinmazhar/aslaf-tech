@@ -1,0 +1,32 @@
+:root {
+    --brand-navy: #243456;
+    --brand-navy-dark: #1E2B49;
+    --brand-red: #AD2028;
+    --brand-red-dark: #921B22;
+    --brand-navy-soft: #F3F5F9;
+    --brand-red-soft: #FDF2F3;
+    --brand-white: #FFFFFF;
+    --brand-navy-rgb: 36, 52, 86;
+    --brand-red-rgb: 173, 32, 40;
+
+    --text-primary: #1F2937;
+    --text-secondary: #5F6F85;
+    --text-on-dark: #E2E8F0;
+    --border-color: #E2E8F0;
+    --brand-border: #94A3B8;
+    --surface: var(--brand-white);
+    --page-background: #F8FAFC;
+    --focus-navy: var(--brand-navy);
+    --focus-red: var(--brand-red);
+
+    /* Existing component tokens share the same public and admin palette. */
+    --ink: var(--text-primary);
+    --text: var(--text-primary);
+    --muted: var(--text-secondary);
+    --line: var(--border-color);
+    --border: var(--border-color);
+    --white: var(--brand-white);
+    --canvas: var(--page-background);
+    --background: var(--page-background);
+    --shadow: 0 18px 45px rgba(var(--brand-navy-rgb), .08);
+}

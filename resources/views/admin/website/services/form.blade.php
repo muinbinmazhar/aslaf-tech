@@ -1,0 +1,14 @@
+@extends('admin.layouts.app')
+@section('title', $service ? 'Edit Service' : 'Add Service')
+@section('content')
+<div class="page-heading"><div><p class="eyebrow">WEBSITE MANAGEMENT</p><h1>{{ $service ? 'Edit Service' : 'Add Service' }}</h1></div><a class="wm-link" href="{{ route('admin.services.index') }}">Back to Services</a></div>
+@include('admin.website.partials.alerts')
+<form class="wm-form wm-panel" method="POST" action="{{ $service ? route('admin.services.update', $service) : route('admin.services.store') }}">@csrf @if($service)@method('PUT')@endif
+<div class="wm-grid"><div class="wm-field wide"><label for="title">Service Title *</label><input id="title" name="title" required value="{{ old('title', $service?->title) }}" @error('title') aria-invalid="true" @enderror>@error('title')<span class="wm-error">{{ $message }}</span>@enderror</div>
+<div class="wm-field wide"><label for="short_description">Short Description *</label><textarea id="short_description" name="short_description" rows="4" required @error('short_description') aria-invalid="true" @enderror>{{ old('short_description', $service?->short_description) }}</textarea>@error('short_description')<span class="wm-error">{{ $message }}</span>@enderror</div>
+<div class="wm-field wide"><label for="badge_text">Card Label</label><input id="badge_text" name="badge_text" maxlength="40" value="{{ old('badge_text', $service?->badge_text) }}" aria-describedby="badge-text-hint" @error('badge_text') aria-invalid="true" @enderror><small id="badge-text-hint">Optional. For example, Available or Coming Soon. Leave blank to hide the label.</small>@error('badge_text')<span class="wm-error">{{ $message }}</span>@enderror</div>
+<div class="wm-field"><label for="icon">Icon *</label><select id="icon" name="icon" required>@foreach(\App\Models\Service::icons() as $name => $symbol)<option value="{{ $name }}" @selected(old('icon', $service?->icon ?? 'code') === $name)>{{ ucfirst($name) }} ({{ $symbol }})</option>@endforeach</select>@error('icon')<span class="wm-error">{{ $message }}</span>@enderror</div>
+<div class="wm-field"><label for="sort_order">Sort Order *</label><input id="sort_order" name="sort_order" type="number" min="0" required value="{{ old('sort_order', $service?->sort_order ?? 0) }}" @error('sort_order') aria-invalid="true" @enderror>@error('sort_order')<span class="wm-error">{{ $message }}</span>@enderror</div>
+<div class="wm-field wide"><input type="hidden" name="is_published" value="0"><label class="wm-check"><input name="is_published" type="checkbox" value="1" @checked(old('is_published', $service?->is_published ?? false))>Published</label>@error('is_published')<span class="wm-error">{{ $message }}</span>@enderror</div></div>
+<div class="wm-actions"><a class="wm-link" href="{{ route('admin.services.index') }}">Cancel</a><button class="wm-primary" type="submit">{{ $service ? 'Update Service' : 'Save Service' }}</button></div></form>
+@endsection
