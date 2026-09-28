@@ -2,3 +2,7 @@
 @media(max-width:650px){.wm-heading{align-items:flex-start;flex-direction:column}.wm-grid{grid-template-columns:1fr}.wm-field.wide{grid-column:auto}.wm-message dl{grid-template-columns:1fr}.wm-row-actions{flex-wrap:wrap}.wm-table{min-width:650px}}
 .sidebar-nav{overflow-y:auto;min-height:0}
 .wm-message-excerpt{max-width:250px;overflow:hidden;text-overflow:ellipsis}
+
+.hero-visual-panel .wm-image-preview{margin:0 0 14px;background:repeating-conic-gradient(var(--brand-navy-soft) 0% 25%,var(--brand-white) 0% 50%) 50% / 20px 20px}
+.hero-visual-panel .wm-image-preview img{min-height:0;max-height:240px}
+.hero-visual-panel .hero-choose-button{display:inline-flex!important;margin-top:8px}

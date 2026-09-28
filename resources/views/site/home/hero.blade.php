@@ -9,6 +9,19 @@
                 @if($content['hero']['secondary_label'] && $content['hero']['secondary_link'])<a class="button button-outline" href="{{ $content['hero']['secondary_link'] }}">{{ $content['hero']['secondary_label'] }}</a>@endif
             </div>
         </div>
-        <div class="hero-visual" aria-hidden="true"><div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div><div class="visual-core">@if($settings->logo_path)<img class="visual-logo" src="{{ asset('storage/'.$settings->logo_path) }}" alt="">@else<span class="visual-monogram">A</span><span>{{ $settings->website_name }}</span><small>DESIGN × DEVELOPMENT</small>@endif</div><div class="visual-chip chip-one">01 / DESIGN</div><div class="visual-chip chip-two">02 / BUILD</div></div>
+        @php($visualPath = app(\App\Support\WebsiteMedia::class)->heroVisualPath($content['hero']['visual_path']))
+        @if($visualPath)
+            <div class="hero-visual hero-visual-managed">
+                @if($content['hero']['visual_show_rings'])
+                    <div class="visual-orbit orbit-one" aria-hidden="true"></div>
+                    <div class="visual-orbit orbit-two" aria-hidden="true"></div>
+                @endif
+                <div class="visual-core"><img class="visual-logo" src="{{ asset('storage/'.$visualPath) }}" alt="{{ $content['hero']['visual_alt'] ?? '' }}"></div>
+                @if($content['hero']['visual_show_labels'])
+                    @if(filled($content['hero']['visual_label_one']))<div class="visual-chip chip-one">{{ $content['hero']['visual_label_one'] }}</div>@endif
+                    @if(filled($content['hero']['visual_label_two']))<div class="visual-chip chip-two">{{ $content['hero']['visual_label_two'] }}</div>@endif
+                @endif
+            </div>
+        @endif
     </div>
 </section>

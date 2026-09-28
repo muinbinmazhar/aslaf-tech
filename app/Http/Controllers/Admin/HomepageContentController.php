@@ -18,7 +18,7 @@ class HomepageContentController extends Controller
 
     public function update(HomepageContentRequest $request, SaveHomepageContent $action): RedirectResponse
     {
-        $action->handle($request->validated()['content'] ?? []);
+        $action->handle($request->validated()['content'] ?? [], $request->file('hero_visual'), $request->boolean('remove_hero_visual'));
 
         return back()->with('success', 'Homepage content saved.');
     }

@@ -48,3 +48,13 @@
 
 .visual-logo{display:block;width:180px;height:180px;object-fit:contain}
 @media(max-width:600px){.hero-visual{display:grid;min-width:0}.visual-logo{width:170px;height:170px}}
+
+.hero-visual-managed{width:100%;max-width:480px;min-width:0;justify-self:center;aspect-ratio:1.2;min-height:0;transform:none}
+.hero-visual-managed .orbit-one{width:82%;height:auto;aspect-ratio:1}
+.hero-visual-managed .orbit-two{width:63%;height:auto;aspect-ratio:1}
+.hero-visual-managed .visual-core{width:48%;height:auto;aspect-ratio:1;border-radius:clamp(18px,4vw,34px)}
+.hero-visual-managed .visual-logo{width:82%;height:82%;max-height:82%;object-fit:contain;transform:rotate(7deg)}
+.hero-visual-managed .visual-chip{max-width:45%;white-space:normal;overflow-wrap:anywhere;font-size:clamp(9px,1vw,11px);padding:8px 10px}
+.hero-visual-managed .chip-one{left:0;top:12%}
+.hero-visual-managed .chip-two{right:0;bottom:12%}
+@media(max-width:700px){.hero-visual-managed{display:grid;max-width:400px;margin-top:16px}}

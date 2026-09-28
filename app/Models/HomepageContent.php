@@ -17,6 +17,12 @@ class HomepageContent extends Model
     {
         return [
             'hero' => [
+                'visual_path' => null,
+                'visual_alt' => 'ASLAF TECH — Design & Development',
+                'visual_label_one' => '01 / DESIGN',
+                'visual_label_two' => '02 / BUILD',
+                'visual_show_rings' => true,
+                'visual_show_labels' => true,
                 'eyebrow' => 'TECHNOLOGY MEETS CREATIVITY',
                 'heading' => 'Digital solutions built with purpose.',
                 'description' => 'From websites and software to mobile apps and creative design, ASLAF TECH brings ideas into the digital world with clarity and care.',
